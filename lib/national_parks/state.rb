@@ -3,7 +3,7 @@ class State
 attr_accessor :name, :states, :access, :camping, :disrcription, :activities, :entranceFees, :contacts, :directionsUrl, :weatherInfo, :images, :addresses
     @@all = []
     @@state = []
-    @@park_name = []
+    @@parks = []
     def initialize(state_id)
         Get_State.new
         # @@all << Get_State.parks["data"] 
@@ -11,14 +11,13 @@ attr_accessor :name, :states, :access, :camping, :disrcription, :activities, :en
         @@state = Get_State.state(state_id)
         # save
         @@state["data"].each do |park|
-            @@park_name << park["name"]
+            temp = Parks.new(park) 
+            
         end
-        binding.pry
+        # binding.pry
     end
 
-    # def self.park_name
-    #     @@park_name
-    # end
+
     def self.all
         @@all
     end

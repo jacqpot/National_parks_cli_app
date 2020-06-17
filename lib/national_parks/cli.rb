@@ -12,10 +12,26 @@ class Call
         puts "what state would you like to check out? (enter 2 character state ID)"
          state_id = gets.strip
          State.new(state_id)
+        get_lists_of_parks
+        puts "which park would you like to learn more about?"
+        puts "please enter the number asociated with your park of choice!"
+        park_choice = gets.chomp
+        Parks.all(park_choice)
+        binding.pry
     end
 
-#     def get_data
 
-#     end
+
+
+    def get_lists_of_parks
+        Parks.all.each {|park| puts "#{park.cli_id}- #{park.name}."}
+        
+    end
+    def park_choice
+        if Parks.all.each {|cli_id|}
+
+        end
+    end
+
 
 end
