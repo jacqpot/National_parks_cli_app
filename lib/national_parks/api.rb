@@ -20,24 +20,5 @@ class Get_State
 
 
 end
-#https://developer.nps.gov/api/v1/parks?stateCode=CO&limit=50&api_key=MzxL9X85KesNiLvdvJe2cbHmmpdzdQl7zfiD4ckm
-#binding.pry
-#API.get_parks
-
-# my api key for potgieter.g.jacques@gmail.com is
-
-# MzxL9X85KesNiLvdvJe2cbHmmpdzdQl7zfiD4ckm
-# class Parks
-#     @@url = "https://developer.nps.gov/api/v1/parks?api_key=MzxL9X85KesNiLvdvJe2cbHmmpdzdQl7zfiD4ckm"
-    
-#     def self.get_park
-#         uri = URI.parse(@@url)
-#         response = Net::HTTP.get_response(uri)
-#         body = response.body
-#         JSON(body)
-#         binding.pry
-#     end
-
-
 
 # end

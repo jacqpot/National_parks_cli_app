@@ -3,21 +3,26 @@ class Parks
     :activities, :entranceFees, :contacts, :directionsUrl, :weatherInfo, 
     :images, :addresses, :longitude, :directionsInfo, :entrancePasses, :url,
     :operatingHours, :topics, :latLong, :designation, :parkCode, :id, 
-    :fullName, :latitude, :cli_id, 
+    :fullName, :latitude, :cli_id
 
     @@all = []
     @@parks = []
 
-    def initialize(args, park_choice)
+    def initialize(args)
         args.each {|key, value| self.send("#{key}=", value)}
         self.cli_id = @@all.size + 1
         save 
+    end
+    def self.get_park_by_id(park_num)
+        self.all.find do|park| 
+            park.cli_id == park_num 
+        end       
     end
     def save
         @@all << self
     end
     def get_park_name
-        self.name 
+        self.fullName  
     end
     def self.all
         @@all
@@ -31,46 +36,35 @@ class Parks
     def get_description
         self.description
     end
+
     def get_activities
-        self.activities.each {|activity| puts activity["name"]} 
-        # binding.pry
+        self.activities.each {|activity| puts activity["name"] }
+        self.url 
     end
 
+    def get_fees
+        self.entranceFees.each {|fee| puts "the #{fee["title"]} is $#{fee[cost]}."}
+    end
 
-    
-    
-    
-    
-    
-    
-    
-    
-    # def self.park_names
-    #     @@park_name
-    # end
-    # def get_parks
-    #     @@state["data"].each do |park|
-    #         @@park_names << park["name"]
-    # end
-    
-    
-    
-
-    
-    
-    
+    def phone_email
+        self.contacts["phoneNumbers"]["phoneNumber"]
+        self.contacts["emailAddresses"]["emailAddress"]
+    end
+    def get_directions
+        self.directionsUrl
+    end
+    def get_weather
+        self.weatherInfo
+    end
+    def get_images
+        self.images.each {|photo| puts photo["url"]}
+    end
+    def get_addresses
+        self.addresses.each do |address| 
+            puts "#{address["line1"]} #{address["city"]} #{address["postalCode"]}" 
+        end
+    end
+    def get_url
+        self.url 
+    end
 end
-# name:, states:, access:, camping:, discription:, activities:, entranceFees:, contacts:, directionsUrl:, weatherInfo:, images:, addresses:)
-# self.name = name 
-# self.states = states
-# self.access = access
-# self.camping = camping
-# self.discription = discription
-# self.activities = activities
-# self.entranceFees = entranceFees 
-# self.contacts = contacts 
-# self.directionsUrl = directionsUrl
-# self.weatherInfo = weatherInfo 
-# self.images = images 
-# self.addresses = addresses
-# self.save
