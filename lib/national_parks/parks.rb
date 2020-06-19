@@ -13,11 +13,13 @@ class Parks
         self.cli_id = @@all.size + 1
         save 
     end
+
     def self.get_park_by_id(park_num)
         self.all.find do|park| 
             park.cli_id == park_num 
         end       
     end
+    
     def save
         @@all << self
     end
@@ -42,28 +44,40 @@ class Parks
         self.url 
     end
 
-    def get_fees
-        self.entranceFees.each {|fee| puts "the #{fee["title"]} is $#{fee[cost]}."}
+    def get_fees     
+        self.entranceFees.each do |fee|
+            if fee["cost"].to_f == 0.0
+                puts "the #{fee["title"]} is free!!!"
+            else 
+                puts "the #{fee["title"]} is $#{fee["cost"].to_f}"
+            end
+        end
+        return nil 
     end
 
     def phone_email
-        self.contacts["phoneNumbers"]["phoneNumber"]
-        self.contacts["emailAddresses"]["emailAddress"]
+        puts "phone number:  #{self.contacts["phoneNumbers"][0]["phoneNumber"]}"
+        puts "email:  #{self.contacts["emailAddresses"][0]["emailAddress"]}"   
     end
+
     def get_directions
         self.directionsUrl
     end
+
     def get_weather
         self.weatherInfo
     end
+
     def get_images
         self.images.each {|photo| puts photo["url"]}
     end
+
     def get_addresses
         self.addresses.each do |address| 
             puts "#{address["line1"]} #{address["city"]} #{address["postalCode"]}" 
         end
     end
+
     def get_url
         self.url 
     end
