@@ -1,28 +1,14 @@
 # NationalParks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/national_parks`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to a National Parks CLI, where you can browse parks by state. Find pertinant information like address, contacts, avalible activities and more.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'national_parks'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install national_parks
+its not a Gem yet, so with Ruby already installed on your computer it is as simple as forking and cloning this onto your local enviornment. Navigate to the National Parks folder in your terminal and enter "./bin/parks-finder-ex".
 
 ## Usage
 
-TODO: Write usage instructions here
+once running, follow along the prompts.
 
 ## Development
 
